@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记账本</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            margin: 20px;
+            /*width: 900px;*/
+        }
+        #container table{
+            width: 100%;
+            border: 1px solid grey;
+            border-collapse: collapse;
+            height: 40px;
+            line-height: 40px;
+        }
+        #container table thead tr{
+            background-color: burlywood;
+        }
+        #container table td,#container table th{
+            border: 1px solid grey;
+            text-align: center;
+        }
+        #container table td{
+            font-size: 12px;
+        }
+        #container table tbody td:hover{
+            background-color: powderblue;
+        }
+        #container table tbody tr:nth-child(odd){
+            background-color: gainsboro;
+        }
+        #container table tbody tr:nth-child(even){
+            background-color: ghostwhite;
+        }
+        #container a{
+            text-decoration: none;
+        }
+        #container span{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            display: inline-block;
+            background-color: gainsboro;
+            margin: 5px;
+            border: 1px solid gray;
+            border-radius: 8px;
+            text-align: center;
+        }
+        #container span:hover{
+            background-color: powderblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <table>
+            <thead>
+            <tr>
+                <th><input type="checkbox" name="ids" value="1" id="checkhead" onclick="check()"></th>
+                <th>编号</th>
+                <th>类别</th>
+                <th>价格</th>
+                <th>说明</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox" name="ids" value="1"></td>
+                <td>1</td>
+                <td>早餐</td>
+                <td>7</td>
+                <td>7个卤蛋</td>
+                <td>
+                    <a href="">删除</a>
+                    <a href="">修改</a>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="ids" value="1"></td>
+                <td>1</td>
+                <td>早餐</td>
+                <td>7</td>
+                <td>7个卤蛋</td>
+                <td>
+                    <a href="">删除</a>
+                    <a href="">修改</a>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="ids" value="1"></td>
+                <td>1</td>
+                <td>早餐</td>
+                <td>7</td>
+                <td>7个卤蛋</td>
+                <td>
+                    <a href="">删除</a>
+                    <a href="">修改</a>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="ids" value="1"></td>
+                <td>1</td>
+                <td>早餐</td>
+                <td>7</td>
+                <td>7个卤蛋</td>
+                <td>
+                    <a href="">删除</a>
+                    <a href="">修改</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="6">
+                    <button>批量删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <span><a href="">1</a></span><span><a href="">2</a></span><span><a href="">3</a></span><span>...</span><span><a href="">15</a></span>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+<script type="text/javascript">
+    function check() {
+        var ids = document.getElementsByName("ids");
+        //使用in后i是遍历的下标
+        for (var i in ids){
+            ids[i].checked = checkhead.checked;
+        }
+    }
+</script>
+</html>

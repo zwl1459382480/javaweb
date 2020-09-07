@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style type="text/css">
+        /*div{*/
+            /*width: 200px;*/
+            /*text-align: center;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div>
+    <button onclick="f()">button</button>
+    <select name="month" id="month"></select>
+</div>
+<script type="text/javascript">
+    function f() {
+        var month = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
+        var a=document.getElementById("month");
+        a.options.length=0;
+        for(var i =0;i<month.length;i++) {
+            var n = month[i];
+            var op = new Option(n, i);
+            a.add(op);
+        }
+        var date = new Date();
+        a.value=date.getMonth();
+    }
+</script>
+
+
+    <!--<div id="div" onclick="jishu()">判断质数-->
+    <!--</div>-->
+    <!--<script type="text/javascript">-->
+        <!--function jishu() {-->
+            <!--var m = window.prompt("请输入一个数字:");-->
+            <!--var msg = '是质数';-->
+            <!--for(var i = 2;i<m;i++){-->
+                <!--if(m%i==0){-->
+                    <!--msg='不是质数';-->
+                    <!--break;-->
+                <!--}-->
+            <!--}-->
+            <!--alert(m+msg);-->
+        <!--}-->
+    <!--</script>-->
+<!--</div>-->
+
+
+<!--<select name="y" id="y">-->
+    <!--<script>-->
+        <!--for(var i=1;i<=12;i++){-->
+            <!--document.write("<option value = '"+i+"'>"+i+"</option>");-->
+        <!--}-->
+    <!--</script>-->
+<!--</select>-->
+<!--<div>-->
+    <!--<script type="text/javascript">-->
+        <!--for(var i=1;i<5;i++){-->
+            <!--for(var j = 1;j<=i;j++){-->
+                <!--document.write('*');-->
+            <!--}-->
+            <!--document.write("<br>");-->
+        <!--}-->
+    <!--</script>-->
+<!--</div>-->
+</body>
+<!--<script type="text/javascript">-->
+    <!--// window.prompt默认输入的是字符串-->
+    <!--var n = window.prompt("请输入一个数字");-->
+    <!--var msg;-->
+    <!--if (isNaN(n)) {-->
+        <!--msg = "不科学";-->
+    <!--}else {-->
+        <!--//js中从页面获取的数据默认都是string类型-->
+        <!--//var m=parseInt('1a')&#45;&#45;&ndash;&gt;1-->
+        <!--switch (n*1) {-->
+            <!--case 0:msg = ("星期日");break;-->
+            <!--case 1:msg = ("星期一");break;-->
+            <!--case 2:msg = ("星期二");break;-->
+            <!--case 3:msg = ("星期三");break;-->
+            <!--case 4:msg = ("星期四");break;-->
+            <!--case 5:msg = ("星期五");break;-->
+            <!--case 6:msg = ("星期六");break;-->
+            <!--default:-->
+                <!--msg = "有误";break;-->
+        <!--}-->
+    <!--}-->
+    <!--alert(msg);-->
+<!--</script>-->
+</html>

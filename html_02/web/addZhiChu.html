@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记账本</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            margin: 10% 30%;
+        }
+        select{
+            width: 60px;
+            height: 25px;
+            border-radius: 5px;
+        }
+        .td_name{
+            width: 50px;
+            height: 50px;
+        }
+        .td_value{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #center{
+            width: 400px;
+            height: 300px;
+            background-color: gainsboro;
+            border: 1px solid grey;
+            border-radius: 5px;
+            text-align: left;
+            padding-left: 20px;
+        }
+        button,#money{
+            border: 1px solid grey;
+            width: 100px;
+            height: 20px;
+            border-radius: 5px;
+        }
+        #zhichu_msg{
+            border: 1px solid grey;
+            width: 100%;
+            height: 20px;
+            border-radius: 5px;
+        }
+        #money_msg{
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="center">
+            <form>
+                <table>
+                    <tr>
+                        <td class="td_name"><span>类别:</span></td>
+                        <td class="td_value">
+                            <select name="leibie" id="leibie">
+                                <option value="购物">购物</option>
+                                <option value="保险">保险</option>
+                                <option value="其他">其他</option></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_name"><span>金额:</span></td>
+                        <td colspan="1" class="td_value"><input onblur="in_money()" onfocus="in_money_focus()" type="text" name="money" id="money"></td>
+                        <td colspan="3"><div id="money_msg">支出金额不能为负数且小于1 000 000 000</div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_name"><span>日期:</span></td>
+                        <td class="td_value" colspan="4">
+                            <select id="year" name="riqi" class="riqi"></select>年
+                            <select id="month" name="riqi" class="riqi"></select>月
+                            <select id="day" name="riqi" class="riqi"></select>日
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_name"><span>描述:</span></td>
+                        <td class="td_value" colspan="4"><input id="zhichu_msg" type="text" placeholder="对此次支出的描述"></td>
+                    </tr>
+                    <tr>
+                        <td class="td_name"></td>
+                        <td class="td_value"><button type="submit">确认添加支出</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    function in_money() {
+        var cash = $("money").value;
+        var reg = /^[0-9]{1,9}$/;
+        var flag = false;
+        var msg = " × 输入的有误!"
+        if (reg.test(cash)){
+            msg = "√";
+            flag = true;
+        }
+        $("money_msg").innerHTML = msg;
+        return flag;
+    }
+
+    function in_money_focus() {
+        var msg = "支出金额不能为负数且小于1 000 000 000";
+        $("money_msg").innerHTML = msg;
+    }
+
+    for(var year = 1900;year<=new Date().getFullYear();year++){
+        var y = document.getElementById("year");
+        var yop=new Option(year,year);
+        y.options.add(yop);
+        if (year==new Date().getFullYear()){
+            yop.selected=true;
+        }
+    }
+    for(var month = 1;month<=12;month++){
+        var m = document.getElementById("month");
+        var mop = new Option(month,month);
+        m.options.add(mop);
+        if (month==new Date().getMonth()+1){
+            mop.selected=true;
+        }
+    }
+    var y = document.getElementById("year").options[document.getElementById("year").selectedIndex].value;
+    var m = document.getElementById("month").options[document.getElementById("month").selectedIndex].value;
+    console.log("y="+y);
+    console.log("m="+m);
+    if(isNaN(m)){
+        console.log("不是数字类型");
+    }else {
+        console.log("数字类型");
+    }
+    switch (m*1) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            var x = 31;
+            for(var i =1;i<=x;i++){
+                var d = document.getElementById("day");
+                var dd = new Option(i,i);
+                d.options.add(dd);
+                if(i==new Date().getDate()){
+                    d.selected = true;
+                }
+            }
+            break;
+        default:
+            console.log("错误!");
+            break;
+    }
+    switch (m*1) {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            var x = 30;
+            for(var i =1;i<=x;i++){
+                var d = document.getElementById("day");
+                var dd = new Option(i,i);
+                d.options.add(dd);
+                if(i==new Date().getDate()){
+                    dd.selected = true;
+                }
+            }
+            break;
+        default:
+            console.log("错误!");
+            break;
+    }
+    switch (m*1) {
+        case 2:
+            if(y%4==0&&y%100!=0||y%400==0){
+                var x=29;
+                for(var i =1;i<=x;i++){
+                    var d = document.getElementById("day");
+                    d.options.add(new Option(i,i));
+                }
+                break;
+            }else {
+                var x=28;
+                for(var i =1;i<=x;i++){
+                    var d = document.getElementById("day");
+                    d.options.add(new Option(i,i));
+                }
+                break;
+            }
+            break;
+        default:
+            console.log("错误!");
+            break
+    }
+</script>
+</html>

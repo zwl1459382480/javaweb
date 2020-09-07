@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记账本</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+        }
+        #container{
+            width: 70%;
+            height: 500px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        #container #title{
+            text-align: center;
+            color: black;
+            background-color: burlywood;
+            font-size: 30px;
+        }
+        #container #huizong{
+            flex: 0 0 45px;
+            line-height: 45px;
+            background-color: gray;
+            text-align: center;
+        }
+        #container #center{
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            background-color: ghostwhite;
+            padding: 30px 20px;
+        }
+        #container #center #zhichu{
+             width: 350px;
+         }
+        #container #center table{
+            width: 100%;
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+        #container #center table td{
+            border: 1px solid white;
+            text-align: center;
+            height: 30px;
+        }
+        #container #center table h2{
+            padding: 5px;
+            font-size: 20px;
+        }
+        #container #center table thead tr{
+            background-color: burlywood;
+        }
+        #container #center table tbody tr:nth-child(odd){
+            background-color: gainsboro;
+        }
+        #container #center table tbody tr:nth-child(even){
+            background-color: darkgray;
+        }
+        #container #center #shouru{
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="title">
+            当月支出与收入情况
+        </div>
+        <div id="center">
+            <div id="shouru">
+                <table>
+                    <caption><h2>当月收入情况</h2></caption>
+                    <thead>
+                    <tr>
+                        <td>编号</td>
+                        <td>类别</td>
+                        <td>金额</td>
+                        <td>日期</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="zhichu">
+                <table>
+                    <caption><h2>当月支出情况</h2></caption>
+                    <thead>
+                    <tr>
+                        <td>编号</td>
+                        <td>类别</td>
+                        <td>金额</td>
+                        <td>日期</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>工资</td>
+                        <td>9000</td>
+                        <td>2020-09-01</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="huizong">
+            总支出:20000&nbsp;&nbsp;&nbsp;&nbsp;总收入:150000&nbsp;&nbsp;&nbsp;&nbsp;余额130000
+        </div>
+    </div>
+</body>
+</html>

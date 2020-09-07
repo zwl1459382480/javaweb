@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记账本</title>
+    <style type="text/css">
+        /*清楚默认的外边距和内填充*/
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+        }
+        body{
+            background-color: burlywood;
+        }
+        #left_menu{
+            width: 200px;
+        }
+        /*清楚列表中的符号*/
+        #left_menu ul{
+            list-style: none;
+        }
+        #left_menu .menu_title{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: burlywood;
+            color: #660000;
+            cursor: pointer;
+            border-bottom: 2px solid white;
+        }
+        /*给标题添加鼠标操作的伪类,鼠标悬停*/
+        #left_menu .menu_title:hover{
+            color: peru;
+            font-size: 20px;
+        }
+        /*设置菜单项的样式，主要给 a设置即可*/
+        #left_menu .menu_item li{
+            border-bottom: 2px solid white;
+            background-color: gainsboro;
+        }
+        #left_menu .menu_item a{
+            text-decoration: none;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        #left_menu .menu_item a:hover{
+            color: peru;
+            font-size: 15px;
+            margin-left: 5px;
+            margin-right: 5px;
+            background-color: powderblue;
+        }
+        .menu_item{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="left_menu">
+    <!-- 收入菜单开始 -->
+    <div class="menu">
+        <div class="menu_title" onclick="show(1)">
+            收入维护
+        </div>
+        <div class="menu_item" id="item_1">
+            <ul>
+                <li>
+                    <a href="addShouRu.html" target="right_main">增加收入</a>
+                </li>
+                <li>
+                    <a href="searchShouRu.html" target="right_main">查询收入</a>
+                </li>
+                <li>
+                    <a href="">维护收入类型</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 收入菜单结束 -->
+    <!-- 支出菜单开始 -->
+    <div class="menu">
+        <div class="menu_title" onclick="show(2)">
+            支出维护
+        </div>
+        <div class="menu_item" id="item_2">
+            <ul>
+                <li>
+                    <a href="addZhiChu.html" target="right_main">增加支出</a>
+                </li>
+                <li>
+                    <a href="searchZhiChu.html" target="right_main">查询支出</a>
+                </li>
+                <li>
+                    <a href="">维护支出类型</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 支出菜单结束 -->
+    <!-- 个人信息维护菜单开始 -->
+    <div class="menu">
+        <div class="menu_title" onclick="show(3)">
+            个人信息维护
+        </div>
+        <div class="menu_item" id="item_3">
+            <ul>
+                <li>
+                    <a href="">修改密码</a>
+                </li>
+                <li>
+                    <a href="">修改个人信息</a>
+                </li>
+                <li>
+                    <a href="center.html" target="right_main">个人主页</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 个人信息维护菜单结束 -->
+</div>
+</body>
+<script type="text/javascript">
+    //当点击右键时,触发快捷菜单事件
+    //屏蔽右键操作
+    document.oncontextmenu = function (event) { event.preventDefault(); }
+    function show(n) {
+        var item = document.getElementById("item_"+n);
+        var f = item.style.display;
+        var items = document.querySelectorAll(".menu_item");
+        for (var i = 0;i<items.length;i++){
+            items[i].style.display = "none";
+        }
+        if(!f || f == "none"){
+            item.style.display = "block";
+        }else {
+            item.style.display = "none";
+        }
+    }
+</script>
+</html>
