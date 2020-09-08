@@ -72,8 +72,8 @@
                     <tr>
                         <td class="td_name"><span>日期:</span></td>
                         <td class="td_value" colspan="4">
-                            <select id="year" name="riqi" class="riqi"></select>年
-                            <select id="month" name="riqi" class="riqi"></select>月
+                            <select onchange="change()" id="year" name="riqi" class="riqi"></select>年
+                            <select onchange="change()" id="month" name="riqi" class="riqi"></select>月
                             <select id="day" name="riqi" class="riqi"></select>日
                         </td>
                     </tr>
@@ -129,77 +129,72 @@
             mop.selected=true;
         }
     }
-    var y = document.getElementById("year").options[document.getElementById("year").selectedIndex].value;
-    var m = document.getElementById("month").options[document.getElementById("month").selectedIndex].value;
-    console.log("y="+y);
-    console.log("m="+m);
-    if(isNaN(m)){
-        console.log("不是数字类型");
-    }else {
-        console.log("数字类型");
-    }
-    switch (m*1) {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            var x = 31;
-            for(var i =1;i<=x;i++){
-                var d = document.getElementById("day");
-                var dd = new Option(i,i);
-                d.options.add(dd);
-                if(i==new Date().getDate()){
-                    d.selected = true;
-                }
-            }
-            break;
-        default:
-            console.log("错误!");
-            break;
-    }
-    switch (m*1) {
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            var x = 30;
-            for(var i =1;i<=x;i++){
-                var d = document.getElementById("day");
-                var dd = new Option(i,i);
-                d.options.add(dd);
-                if(i==new Date().getDate()){
-                    dd.selected = true;
-                }
-            }
-            break;
-        default:
-            console.log("错误!");
-            break;
-    }
-    switch (m*1) {
-        case 2:
-            if(y%4==0&&y%100!=0||y%400==0){
-                var x=29;
+    function addday() {
+        var y = document.getElementById("year").options[document.getElementById("year").selectedIndex].value;
+        var m = document.getElementById("month").options[document.getElementById("month").selectedIndex].value;
+        switch (m*1) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                var x = 31;
                 for(var i =1;i<=x;i++){
                     var d = document.getElementById("day");
-                    d.options.add(new Option(i,i));
+                    var dd = new Option(i,i);
+                    d.options.add(dd);
+                    if(i==new Date().getDate()){
+                        d.selected = true;
+                    }
                 }
                 break;
-            }else {
-                var x=28;
+        }
+        switch (m*1) {
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                var x = 30;
                 for(var i =1;i<=x;i++){
                     var d = document.getElementById("day");
-                    d.options.add(new Option(i,i));
+                    var dd = new Option(i,i);
+                    d.options.add(dd);
+                    if(i==new Date().getDate()){
+                        dd.selected = true;
+                    }
                 }
                 break;
-            }
-            break;
-        default:
-            console.log("错误!");
-            break
+        }
+        switch (m*1) {
+            case 2:
+                if(y%4==0&&y%100!=0||y%400==0){
+                    var x=29;
+                    for(var i =1;i<=x;i++){
+                        var d = document.getElementById("day");
+                        d.options.add(new Option(i,i));
+                    }
+                    break;
+                }else {
+                    var x=28;
+                    for(var i =1;i<=x;i++){
+                        var d = document.getElementById("day");
+                        d.options.add(new Option(i,i));
+                    }
+                    break;
+                }
+                break;
+        }
+    }
+    addday();
+    function change() {
+        var d = document.getElementById("day");
+        var i =0;
+        while(i<d.options.length){
+            d.options.remove(0);
+        }
+        addday();
     }
 </script>
 </html>
